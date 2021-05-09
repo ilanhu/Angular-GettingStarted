@@ -8,7 +8,7 @@ import { IProduct } from "./product";
 })
 export class
   ProductListComponent implements OnInit {
-  pageTitle: string = 'Product List!';
+  pageTitle: string = 'Product List';
   imageWidth: number = 50;
   imageMargin: number = 2;
   showImage: boolean = false;
@@ -55,10 +55,14 @@ export class
     return this.products.filter((product: IProduct) =>
       product.productName.toLocaleLowerCase().includes(filterBy));
   }
-  
+
   ngOnInit(): void {
     console.log("In OnInit method.");
     this.listFilter = 'cart';
+  }
+
+  onRatingClicked(message: string): void {
+    this.pageTitle = 'Product List. ' + message;
   }
 
 }
